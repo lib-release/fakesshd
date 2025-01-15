@@ -59,7 +59,7 @@
 # channel open request, channel request
 # when client attempt to login our fake ssh server
 ./fakesshd --listen 0.0.0.0:22 \
-    --http
+    --http \
     --software "OpenSSH_8.4p1 Debian-5+deb11u3" \
     --password-login-response-success \
     --publickey-login-response-success
