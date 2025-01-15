@@ -51,13 +51,11 @@
 --close-timeout-after-channel-open 1
 
 ```
-### exampl
+### example
+the command will start up fakesshd at 0.0.0.0:22, http server runs at 0.0.0.0:22 too.
+
+you can see login username and password,channel open request, channel requestwhen client attempt to login our fake ssh server
 ```bash
-# the command will start up fakesshd at 0.0.0.0:22,
-# http server runs at 0.0.0.0:22 too.
-# you can see login username and password,
-# channel open request, channel request
-# when client attempt to login our fake ssh server
 ./fakesshd --listen 0.0.0.0:22 \
     --http \
     --software "OpenSSH_8.4p1 Debian-5+deb11u3" \
@@ -69,9 +67,9 @@ browser may does not allow you visit port 22 buy http protocol.
 
 you can change '--http' to other address, eg. '--http 0.0.0.0:8080'
 
-then you can use port 8080 to visit logs
+then you can use port 8080 to visit logs.
 
-you can set a ningx rule to handle http on port 22. eg.
+alse, you can add ningx location rule to handle http on port 22. 
 ```nginx
 location ~ ^/fakesshd_logs
 {
