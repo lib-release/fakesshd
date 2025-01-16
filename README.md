@@ -39,29 +39,28 @@ you will see many brute force password attacks requests.
 
 # response success to client when they attempt login
 # after they authenticate success,
-# they may send channel open request to out fake server
+# they may send channel open request to our fake server
 --password-login-response-success
 --publickey-login-response-success
 
-# if response success to client,
-# server will auto disconnect connection
+# if response success to client, server will auto disconnect connection.
 # time uint is 'second'
 --disconnect-timeout-after-login-success 5
 
-# allow client sent channel open request
-# and our fake server will do nothing
+# allow client sent channel open request, but our fake server will do nothing.
 # just tell the client channel open success
 --allow-channel-open
 
-# server will auto close channel
+# server will auto close channel.
 # time uint is 'second'
 --close-timeout-after-channel-open 1
 
 ```
 ### example
-the command will start up fakesshd at 0.0.0.0:22, http server runs at 0.0.0.0:22 too.
+the following command will start up fakesshd at 0.0.0.0:22, http server runs at 0.0.0.0:22 too.
 
 you can see login username and password,channel open request, channel requestwhen client attempt to login our fake ssh server
+
 ```bash
 ./fakesshd --listen 0.0.0.0:22 \
     --http \
@@ -70,13 +69,13 @@ you can see login username and password,channel open request, channel requestwhe
     --publickey-login-response-success
 ```
 
-browser may does not allow you visit port 22 buy http protocol.
+browser may does not allow you visit port 22 by http protocol.
 
 you can change '--http' to other address, eg. '--http 0.0.0.0:8080'
 
 then you can use port 8080 to visit logs.
 
-alse, you can add ningx location rule to handle http on port 22. 
+also, you can add a ningx proxy rule to process request on port 22. 
 ```nginx
 location ~ ^/fakesshd_logs
 {
@@ -87,4 +86,4 @@ location ~ ^/fakesshd_logs
 }
 ```
 
-then you can visits '/fakesshd_logs' to view login attempts log
+then you can visit '/fakesshd_logs' to view login attempts.
