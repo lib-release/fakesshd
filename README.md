@@ -16,8 +16,8 @@ you will see many brute force password attacks requests.
 # !!!
 ./fakesshd
 
-#login attempts records will save to directory './Logs/SSH2'.
 ```
+login attempts records will save to directory `./Logs/SSH2`.
 
 ### startup options
 ```bash
